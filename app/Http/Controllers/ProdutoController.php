@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 class ProdutoController extends Controller
 {
     public function lista(){
-        return '<h1>Listagem de produtos com Laravel</h1>';
+        $produtos = DB::select('select * from produtos');
+
+        return view('listagem')->withProdutos($produtos);
     }
 }

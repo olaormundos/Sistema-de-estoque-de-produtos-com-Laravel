@@ -12,14 +12,14 @@
     <div class="container">
         <h1>Listagem de produtos</h1>
         <table class="table table-striped table-bordered table-hover">
-            <?php foreach ($produtos as $p): ?>
+            <?php foreach ($produtos as $item): ?>
             <tr>
-                <td><?= $p->name ?></td>
-                <td><?= $p->valor ?></td>
-                <td><?= $p->descricao ?></td>
-                <td><?= $p->quantidade ?></td>
+                <td><?= $item->name ?></td>
+                <td><?= $item->valor ?></td>
+                <td><?= $item->descricao ?></td>
+                <td><?= $item->quantidade ?></td>
                 <td>
-                    <a href="/produtos/detalhes?id=<?= $p->id ?>">
+                    <a href="/produtos/detalhes/<?= $item->id ?>">
                         <span>
                             <i class="bi bi-search-heart"></i>
                         </span>

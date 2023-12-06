@@ -22,4 +22,4 @@ Route::get('/', function(){
 });
 
 Route::get('/produtos', 'App\Http\Controllers\ProdutoController@lista');
-Route::get('/produtos/detalhes', 'App\Http\Controllers\ProdutoController@detalhes');
+Route::get('/produtos/detalhes/{id}', 'App\Http\Controllers\ProdutoController@detalhes')->where('id', '[0-9]+');

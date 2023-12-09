@@ -1,7 +1,7 @@
 @extends('layout.principal')
     @section('conteudo')
         <h1>Novo produto.</h1>
-        <form action="/produtos/adiciona/">
+        <form action="/produtos/adiciona/" method="POST">
             <div class="form-group">
                 <label>Nome</label>
                 <input type="text" name="nome" class="form-control">
@@ -21,6 +21,8 @@
                 <label>Quantidade</label>
                 <input type="number" name="quantidade" class="form-control">
             </div>
+
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
 
             <button type="submit" class="btn btn-primary btn-block">Postar</button>            
         </form>

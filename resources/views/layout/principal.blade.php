@@ -23,6 +23,13 @@
                 </a>
             </li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/produtos/novo">
+                    Adicionar novo
+                </a>
+            </li>
+        </ul>
     </nav>   
     <div class="container">
         @yield('conteudo')

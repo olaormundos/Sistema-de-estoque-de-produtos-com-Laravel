@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Psr7\Request as Psr7Request;
 use Illuminate\Support\Facades\DB;
 use Request;
 
@@ -42,6 +43,8 @@ class ProdutoController extends Controller
             'descricao'  => $descricao
         ]);
 
-        return redirect('/produtos')->withInput();
+        return redirect()->
+        action('ProdutoController@lista')->
+        withInput(Request::only('nome'));
     }
 }

@@ -29,4 +29,9 @@
                 Um ou mais produtos estão com o estoque acabando!
             </div>
         </h4>
+        @if(old('nome'))
+            <div class="alert alert-success">
+                <strong>Sucesso!</strong> O produto {{ old('nome') }} foi adicionado.
+            </div>
+        @endif
     @endsection     

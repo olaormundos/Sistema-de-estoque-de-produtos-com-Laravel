@@ -25,3 +25,4 @@ Route::get('/produtos', 'App\Http\Controllers\ProdutoController@lista');
 Route::get('/produtos/detalhes/{id}', 'App\Http\Controllers\ProdutoController@detalhes')->where('id', '[0-9]+');
 Route::get('/produtos/novo', 'App\Http\Controllers\ProdutoController@novo');
 Route::post('/produtos/adiciona', 'App\Http\Controllers\ProdutoController@adiciona');
+Route::get('/produtos/json', 'App\Http\Controllers\ProdutoController@listaJson');

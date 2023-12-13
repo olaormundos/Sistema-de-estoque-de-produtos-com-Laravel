@@ -4,24 +4,26 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Psr7\Request as Psr7Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Produto;
 use Request;
 
 class ProdutoController extends Controller
 {
     public function lista(){
-        $produtos = DB::select('select * from produtos');
+        $produtos = Produto::all();
 
         return view('produto.listagem')->with('produtos', $produtos);
     }
 
     public function detalhes($id){
 
-        $resposta = DB::select('select * from produtos where id= ?', [$id]);
+        $produto = Produto::find($id);
+        //$resposta = DB::select('select * from produtos where id= ?', [$id]);
 
-        if(empty($resposta)){
+        if(empty($produto)){
             return 'O produto procurado não existe!';
         }else{
-            return view('produto.detalhes')->with('DadosdoProduto', $resposta[0]);
+            return view('produto.detalhes')->with('DadosdoProduto', $produto);
         }
 
     }
@@ -46,5 +48,13 @@ class ProdutoController extends Controller
         return redirect()->
         action('ProdutoController@lista')->
         withInput(Request::only('nome'));
+    }
+
+    public function listaJson(){
+        
+        $produtos = Produto::all();
+
+        return response()->json($produtos);
+    
     }
 }
